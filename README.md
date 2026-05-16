@@ -37,60 +37,44 @@ Flutter Finance Tracker is a comprehensive mobile application designed to help u
 
 | Technology | Purpose |
 |-----------|---------|
-| **Flutter** | Cross-platform mobile framework |
+| **Flutter** | Cross-platform UI toolkit |
 | **Dart** | Programming language |
-| **BLoC** | State management and business logic |
-| **get_it** | Service locator & dependency injection |
-| **Hive** | Local data persistence |
-| **fl_chart** | Beautiful chart visualizations |
+| **BLoC** | State management |
+| **get_it** | Dependency injection / service locator |
+| **Hive** | Local storage persistence |
+| **fl_chart** | Chart visualizations |
+
+---
+
+## 🏛️ Architecture
+
+Clean Architecture with 3 layers:
+- **Presentation** — pages, widgets, bloc
+- **Domain** — entities, repositories interface, usecases
+- **Data** — models, repositories implementation, datasources
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-fintech-flutter/
-├── lib/
-│   ├── main.dart                 # App entry point
-│   ├── config/
-│   │   ├── theme.dart           # Theme configuration
-│   │   └── constants.dart       # App constants
+lib/
+├── core/
+│   └── di/
+│       └── injection.dart
+├── data/
+│   ├── datasources/
 │   ├── models/
-│   │   ├── transaction.dart     # Transaction model
-│   │   └── category.dart        # Category model
-│   ├── data/
-│   │   ├── datasources/
-│   │   │   └── local_datasource.dart
-│   │   ├── repositories/
-│   │   │   └── transaction_repository.dart
-│   │   └── hive_models/
-│   │       └── transaction_hive_model.dart
-│   ├── business/
-│   │   ├── bloc/
-│   │   │   ├── transaction_bloc/
-│   │   │   ├── dashboard_bloc/
-│   │   │   └── theme_bloc/
-│   │   └── usecases/
-│   │       ├── get_transactions_usecase.dart
-│   │       ├── add_transaction_usecase.dart
-│   │       └── delete_transaction_usecase.dart
-│   ├── presentation/
-│   │   ├── screens/
-│   │   │   ├── dashboard_screen.dart
-│   │   │   ├── transaction_list_screen.dart
-│   │   │   ├── add_transaction_screen.dart
-│   │   │   └── chart_screen.dart
-│   │   ├── widgets/
-│   │   │   ├── transaction_card.dart
-│   │   │   ├── summary_card.dart
-│   │   │   └── chart_widget.dart
-│   │   └── routes/
-│   │       └── app_routes.dart
-│   └── service_locator.dart     # Dependency injection setup
-├── test/                         # Unit & widget tests
-├── pubspec.yaml
-├── README.md
-└── analysis_options.yaml
+│   └── repositories/
+├── domain/
+│   ├── entities/
+│   ├── repositories/
+│   └── usecases/
+├── presentation/
+│   ├── bloc/
+│   ├── pages/
+│   └── widgets/
+└── main.dart
 ```
 
 ---
